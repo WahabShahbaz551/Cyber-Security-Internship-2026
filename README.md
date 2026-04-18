@@ -21,7 +21,9 @@ Below is the Vulnerability Risk Assessment Matrix based on my manual testing. *(
 
 ### 🔬 Exploits Demonstrated
 1. **Authentication Bypass (SQLi):** Successfully bypassed the login mechanism using payload `' OR '1'='1` due to lack of parameterized queries.
-2. **Arbitrary Code Execution (Stored XSS):** Injected malicious JavaScript `<script>alert(1)</script>` into the user profile biography, which executed upon page load due to missing output sanitization.
+2. ![SQLi Vulnerability Give Access to the Admin Panel](ScreenShots/output%20SQL%20Injection.png)
+3. **Arbitrary Code Execution (Stored XSS):** Injected malicious JavaScript `<script>alert(1)</script>` into the user profile biography, which executed upon page load due to missing output sanitization.
+4. ![XSS Alert Box shown on browser](ScreenShots/Output%20XSS%20Attack-2.png)
 
 ### 🛠️ Tools & Technologies Used
 * **Backend:** Node.js, Express.js
