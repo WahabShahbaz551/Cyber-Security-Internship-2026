@@ -29,6 +29,9 @@ Below is the Vulnerability Risk Assessment Matrix based on my manual testing. *(
 * **Backend:** Node.js, Express.js
 * **Database:** SQLite (In-Memory)
 * **Testing Techniques:** Manual Penetration Testing, Risk Assessment Matrix
+* ### 📄 Automated Testing Reports
+As part of the security assessment, an automated scan was also performed using OWASP ZAP to identify misconfigurations and missing security headers.
+* [View OWASP ZAP HTML Report](2026-04-19-ZAP-Report-.html)
 
 ## 💻 Setup Instructions (For Educational Purposes Only)
 If you want to run this vulnerable lab locally:
