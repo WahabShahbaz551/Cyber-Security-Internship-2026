@@ -32,7 +32,7 @@ Below is the Vulnerability Risk Assessment Matrix based on my manual testing. *(
 *### 📄 Automated Testing (OWASP ZAP)
 As part of the security assessment, an automated scan was performed using OWASP ZAP to identify misconfigurations and missing security headers.
 
-![OWASP ZAP Scan Results](screenshots/zap-report.png)
+![OWASP ZAP Scan Results](ScreenShots/zap-report.png)
 
 * [View Full OWASP ZAP HTML Report](2026-04-19-ZAP-Report-.html)
 
