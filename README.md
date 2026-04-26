@@ -13,11 +13,18 @@ During the first week, I deployed an intentionally vulnerable Node.js applicatio
 ### 🔍 Findings & Risk Matrix
 Below is the Vulnerability Risk Assessment Matrix based on my manual testing. *(Risk Score = Likelihood × Impact)*
 
-| Vulnerability | Likelihood (1-5) | Impact (1-5) | Risk Score | Risk Level | Status |
-| :--- | :---: | :---: | :---: | :--- | :--- |
-| **SQL Injection (Auth Bypass)** | 5 | 5 | **25** | 🔴 Critical | Unpatched |
-| **Stored XSS (Profile Bio)** | 4 | 4 | **16** | 🔴 Critical | Unpatched |
-| **Missing Security Headers** | 4 | 2 | **8** | 🟡 Medium | Unpatched |
+| Vulnerability | Tool Used | Likelihood | Impact | Risk Score | Risk Level | Status |
+|---|---|---|---|---|---|---|
+| SQL Injection (Auth Bypass) | Manual | 5 | 5 | 25 | 🔴 Critical | Unpatched |
+| Stored XSS (Profile Bio) | Manual | 4 | 4 | 16 | 🔴 Critical | Unpatched |
+| Plain-Text Password Storage | Manual (DB inspect) | 4 | 5 | 20 | 🔴 Critical | Unpatched |
+| Absence of Anti-CSRF Tokens | OWASP ZAP | 3 | 4 | 12 | 🟠 High | Unpatched |
+| CSP Header Not Set | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | Unpatched |
+| CSP: No Fallback Directive | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | Unpatched |
+| Missing Anti-clickjacking Header | OWASP ZAP | 3 | 3 | 9 | 🟡 Medium | Unpatched |
+| X-Powered-By Header Leaks Tech Stack | OWASP ZAP | 5 | 1 | 5 | 🔵 Low | Unpatched |
+| X-Content-Type-Options Missing | OWASP ZAP | 4 | 1 | 4 | 🔵 Low | Unpatched |
+| Authentication Request Exposed | OWASP ZAP | 2 | 1 | 2 | ⚪ Info | Noted |
 
 ### 🔬 Exploits Demonstrated
 1. **Authentication Bypass (SQLi):** Successfully bypassed the login mechanism using payload `' OR '1'='1` due to lack of parameterized queries.
