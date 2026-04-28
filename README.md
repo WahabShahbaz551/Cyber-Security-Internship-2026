@@ -31,7 +31,6 @@ Passwords are stored without hashing in the SQLite database,
 exposing all user credentials if the database is ever accessed.
 
 ![Plain-text passwords in DB](ScreenShots/PlainText_Password_DB.png)
-)
 
 ### 🔬 Exploits Demonstrated
 1. **Authentication Bypass (SQLi):** Successfully bypassed the login mechanism using payload `' OR '1'='1` due to lack of parameterized queries.
