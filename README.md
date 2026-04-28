@@ -26,6 +26,12 @@ Below is the Vulnerability Risk Assessment Matrix based on my manual testing. *(
 | X-Content-Type-Options Missing | OWASP ZAP | 4 | 1 | 4 | 🔵 Low | Unpatched |
 | Authentication Request Exposed | OWASP ZAP | 2 | 1 | 2 | ⚪ Info | Noted |
 
+### 🔑 Plain-Text Password Storage
+Passwords are stored without hashing in the SQLite database, 
+exposing all user credentials if the database is ever accessed.
+
+![Plain-text passwords in DB](ScreenShots/PlainText_Password_DB.png)
+
 ### 🔬 Exploits Demonstrated
 1. **Authentication Bypass (SQLi):** Successfully bypassed the login mechanism using payload `' OR '1'='1` due to lack of parameterized queries.
 2. ![SQLi Vulnerability Give Access to the Admin Panel](ScreenShots/output%20SQL%20Injection.png)
