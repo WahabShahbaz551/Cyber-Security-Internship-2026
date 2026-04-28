@@ -49,6 +49,16 @@ As part of the security assessment, an automated scan was performed using OWASP 
 
 * [View Full OWASP ZAP HTML Report](2026-04-19-ZAP-Report-.html)
 
+## 📁 Project Structure
+
+| File/Folder | Purpose |
+|---|---|
+| `app.js` | Main Express server with vulnerable routes |
+| `views/` | EJS templates for login, signup, and profile pages |
+| `ScreenShots/` | Evidence screenshots from vulnerability testing |
+| `ZAP_Report_Week1.html` | Full OWASP ZAP automated scan report |
+| `Cybersecurity_Report_Week1_Final.pdf` | Formal findings document |
+
 ## 💻 Setup Instructions (For Educational Purposes Only)
 If you want to run this vulnerable lab locally:
 
