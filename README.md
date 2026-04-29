@@ -54,7 +54,7 @@ As part of the security assessment, an automated scan was performed using OWASP 
 | File/Folder | Purpose |
 |---|---|
 | `app.js` | Main Express server with vulnerable routes |
-| `views/` | EJS templates for login, signup, and profile pages |
+| `views/` | EJS templates for login, signup, profile pages |
 | `ScreenShots/` | Evidence screenshots from vulnerability testing |
 | `ZAP_Report_Week1.html` | Full OWASP ZAP automated scan report |
 | `Cybersecurity_Report_Week1_Final.pdf` | Formal findings document |
