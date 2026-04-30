@@ -487,12 +487,21 @@
 		<td><details open="open">
 				<summary>Request line and header section (239 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>GET http://localhost:3000/robots.txt HTTP/1.1
 host: localhost:3000
 user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
 pragma: no-cache
 cache-control: no-cache
 
+=======
+				<pre><code>GET http://localhost:3000/robots.txt HTTP/1.1
+host: localhost:3000
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -509,6 +518,7 @@ cache-control: no-cache
 		<td><details open="open">
 				<summary>Status line and header section (293 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>HTTP/1.1 404 Not Found
 X-Powered-By: Express
 Content-Security-Policy: default-src &#39;none&#39;
@@ -520,6 +530,19 @@ Date: Sat, 18 Apr 2026 21:01:08 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
+=======
+				<pre><code>HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Security-Policy: default-src &#39;none&#39;
+X-XSS-Protection: 0
+X-Content-Type-Options: nosniff
+Content-Type: text/html; charset=utf-8
+Content-Length: 149
+Date: Sat, 18 Apr 2026 21:01:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -602,12 +625,21 @@ Keep-Alive: timeout=5
 		<td><details open="open">
 				<summary>Request line and header section (229 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>GET http://localhost:3000/ HTTP/1.1
 host: localhost:3000
 user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
 pragma: no-cache
 cache-control: no-cache
 
+=======
+				<pre><code>GET http://localhost:3000/ HTTP/1.1
+host: localhost:3000
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -624,6 +656,7 @@ cache-control: no-cache
 		<td><details open="open">
 				<summary>Status line and header section (231 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: text/html; charset=utf-8
@@ -633,12 +666,24 @@ Date: Sat, 18 Apr 2026 21:01:08 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
+=======
+				<pre><code>HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 1274
+ETag: W/&quot;4fa-+/k56zqtjYxJi7qxUHSWiK9uHIQ&quot;
+Date: Sat, 18 Apr 2026 21:01:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
 			</details> <details class="response-body" open="open">
 				<summary>Response body (1274 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -671,6 +716,40 @@ Keep-Alive: timeout=5
         &lt;/form&gt;
     &lt;/div&gt;
 &lt;/body&gt;
+=======
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Vulnerable App - Week 1&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: sans-serif; margin: 50px; line-height: 1.6; }
+        .box { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        input { display: block; margin: 10px 0; padding: 8px; width: 250px; }
+        button { background: #2ecc71; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Security Testing Lab&lt;/h1&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Login&lt;/h3&gt;
+        &lt;form action=&quot;/login&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Username&quot; required&gt;
+            &lt;input type=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;Password&quot; required&gt;
+            &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Update Profile Bio&lt;/h3&gt;
+        &lt;form action=&quot;/update-bio&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Your Username&quot; required&gt;
+            &lt;textarea name=&quot;bio&quot; placeholder=&quot;Write something about yourself...&quot; rows=&quot;4&quot; cols=&quot;30&quot;&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+            &lt;button type=&quot;submit&quot;&gt;Update Bio&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 &lt;/html&gt;</code></pre>
 				
 				
@@ -754,12 +833,21 @@ Keep-Alive: timeout=5
 		<td><details open="open">
 				<summary>Request line and header section (229 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>GET http://localhost:3000/ HTTP/1.1
 host: localhost:3000
 user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
 pragma: no-cache
 cache-control: no-cache
 
+=======
+				<pre><code>GET http://localhost:3000/ HTTP/1.1
+host: localhost:3000
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -776,6 +864,7 @@ cache-control: no-cache
 		<td><details open="open">
 				<summary>Status line and header section (231 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: text/html; charset=utf-8
@@ -785,12 +874,24 @@ Date: Sat, 18 Apr 2026 21:01:08 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
+=======
+				<pre><code>HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 1274
+ETag: W/&quot;4fa-+/k56zqtjYxJi7qxUHSWiK9uHIQ&quot;
+Date: Sat, 18 Apr 2026 21:01:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
 			</details> <details class="response-body" open="open">
 				<summary>Response body (1274 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -823,6 +924,40 @@ Keep-Alive: timeout=5
         &lt;/form&gt;
     &lt;/div&gt;
 &lt;/body&gt;
+=======
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Vulnerable App - Week 1&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: sans-serif; margin: 50px; line-height: 1.6; }
+        .box { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        input { display: block; margin: 10px 0; padding: 8px; width: 250px; }
+        button { background: #2ecc71; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Security Testing Lab&lt;/h1&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Login&lt;/h3&gt;
+        &lt;form action=&quot;/login&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Username&quot; required&gt;
+            &lt;input type=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;Password&quot; required&gt;
+            &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Update Profile Bio&lt;/h3&gt;
+        &lt;form action=&quot;/update-bio&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Your Username&quot; required&gt;
+            &lt;textarea name=&quot;bio&quot; placeholder=&quot;Write something about yourself...&quot; rows=&quot;4&quot; cols=&quot;30&quot;&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+            &lt;button type=&quot;submit&quot;&gt;Update Bio&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 &lt;/html&gt;</code></pre>
 				
 				
@@ -928,12 +1063,21 @@ Keep-Alive: timeout=5
 		<td><details open="open">
 				<summary>Request line and header section (229 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>GET http://localhost:3000/ HTTP/1.1
 host: localhost:3000
 user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
 pragma: no-cache
 cache-control: no-cache
 
+=======
+				<pre><code>GET http://localhost:3000/ HTTP/1.1
+host: localhost:3000
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -950,6 +1094,7 @@ cache-control: no-cache
 		<td><details open="open">
 				<summary>Status line and header section (231 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: text/html; charset=utf-8
@@ -959,12 +1104,24 @@ Date: Sat, 18 Apr 2026 21:01:08 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
+=======
+				<pre><code>HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 1274
+ETag: W/&quot;4fa-+/k56zqtjYxJi7qxUHSWiK9uHIQ&quot;
+Date: Sat, 18 Apr 2026 21:01:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
 			</details> <details class="response-body" open="open">
 				<summary>Response body (1274 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -997,6 +1154,40 @@ Keep-Alive: timeout=5
         &lt;/form&gt;
     &lt;/div&gt;
 &lt;/body&gt;
+=======
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Vulnerable App - Week 1&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: sans-serif; margin: 50px; line-height: 1.6; }
+        .box { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        input { display: block; margin: 10px 0; padding: 8px; width: 250px; }
+        button { background: #2ecc71; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Security Testing Lab&lt;/h1&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Login&lt;/h3&gt;
+        &lt;form action=&quot;/login&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Username&quot; required&gt;
+            &lt;input type=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;Password&quot; required&gt;
+            &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Update Profile Bio&lt;/h3&gt;
+        &lt;form action=&quot;/update-bio&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Your Username&quot; required&gt;
+            &lt;textarea name=&quot;bio&quot; placeholder=&quot;Write something about yourself...&quot; rows=&quot;4&quot; cols=&quot;30&quot;&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+            &lt;button type=&quot;submit&quot;&gt;Update Bio&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 &lt;/html&gt;</code></pre>
 				
 				
@@ -1116,12 +1307,21 @@ Keep-Alive: timeout=5
 		<td><details open="open">
 				<summary>Request line and header section (240 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>GET http://localhost:3000/sitemap.xml HTTP/1.1
 host: localhost:3000
 user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
 pragma: no-cache
 cache-control: no-cache
 
+=======
+				<pre><code>GET http://localhost:3000/sitemap.xml HTTP/1.1
+host: localhost:3000
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -1138,6 +1338,7 @@ cache-control: no-cache
 		<td><details open="open">
 				<summary>Status line and header section (293 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>HTTP/1.1 404 Not Found
 X-Powered-By: Express
 Content-Security-Policy: default-src &#39;none&#39;
@@ -1149,6 +1350,19 @@ Date: Sat, 18 Apr 2026 21:01:08 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
+=======
+				<pre><code>HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Security-Policy: default-src &#39;none&#39;
+X-XSS-Protection: 0
+X-Content-Type-Options: nosniff
+Content-Type: text/html; charset=utf-8
+Content-Length: 150
+Date: Sat, 18 Apr 2026 21:01:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -1235,12 +1449,21 @@ Keep-Alive: timeout=5
 		<td><details open="open">
 				<summary>Request line and header section (229 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>GET http://localhost:3000/ HTTP/1.1
 host: localhost:3000
 user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
 pragma: no-cache
 cache-control: no-cache
 
+=======
+				<pre><code>GET http://localhost:3000/ HTTP/1.1
+host: localhost:3000
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -1257,6 +1480,7 @@ cache-control: no-cache
 		<td><details open="open">
 				<summary>Status line and header section (231 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: text/html; charset=utf-8
@@ -1266,12 +1490,24 @@ Date: Sat, 18 Apr 2026 21:01:08 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
+=======
+				<pre><code>HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 1274
+ETag: W/&quot;4fa-+/k56zqtjYxJi7qxUHSWiK9uHIQ&quot;
+Date: Sat, 18 Apr 2026 21:01:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
 			</details> <details class="response-body" open="open">
 				<summary>Response body (1274 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -1304,6 +1540,40 @@ Keep-Alive: timeout=5
         &lt;/form&gt;
     &lt;/div&gt;
 &lt;/body&gt;
+=======
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Vulnerable App - Week 1&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: sans-serif; margin: 50px; line-height: 1.6; }
+        .box { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        input { display: block; margin: 10px 0; padding: 8px; width: 250px; }
+        button { background: #2ecc71; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Security Testing Lab&lt;/h1&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Login&lt;/h3&gt;
+        &lt;form action=&quot;/login&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Username&quot; required&gt;
+            &lt;input type=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;Password&quot; required&gt;
+            &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;h3&gt;Update Profile Bio&lt;/h3&gt;
+        &lt;form action=&quot;/update-bio&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Your Username&quot; required&gt;
+            &lt;textarea name=&quot;bio&quot; placeholder=&quot;Write something about yourself...&quot; rows=&quot;4&quot; cols=&quot;30&quot;&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+            &lt;button type=&quot;submit&quot;&gt;Update Bio&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 &lt;/html&gt;</code></pre>
 				
 				
@@ -1397,6 +1667,7 @@ Keep-Alive: timeout=5
 		<td><details open="open">
 				<summary>Request line and header section (337 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>POST http://localhost:3000/login HTTP/1.1
 host: localhost:3000
 user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
@@ -1406,6 +1677,17 @@ content-type: application/x-www-form-urlencoded
 referer: http://localhost:3000/
 content-length: 25
 
+=======
+				<pre><code>POST http://localhost:3000/login HTTP/1.1
+host: localhost:3000
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://localhost:3000/
+content-length: 25
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
@@ -1422,6 +1704,7 @@ content-length: 25
 		<td><details open="open">
 				<summary>Status line and header section (228 bytes)</summary>
 				
+<<<<<<< HEAD
 				<pre><code>HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: text/html; charset=utf-8
@@ -1431,6 +1714,17 @@ Date: Sat, 18 Apr 2026 21:01:08 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
+=======
+				<pre><code>HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 34
+ETag: W/&quot;22-UTsFDHkfObqwx036Ny+TSUKPzIY&quot;
+Date: Sat, 18 Apr 2026 21:01:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+>>>>>>> ab144f0943302e4a86643330eed3c223ab18ea23
 </code></pre>
 				
 				
