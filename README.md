@@ -98,3 +98,18 @@ planned for Week 2:
    `app.disable('x-powered-by')`.
 ---
 *Stay tuned for Week 2, where I will be implementing Parameterized Queries, Input Sanitization (Validator), and Password Hashing (Bcrypt) to secure this application!*
+
+---
+
+## 🔐 Week 2: Security Implementation (Defender Phase)
+In this phase, the application was transformed from a vulnerable state to a secure, production-ready environment.
+
+### **Implemented Security Features:**
+- **Password Hashing (Bcrypt):** User passwords are now securely hashed before being stored in the database.
+- **JWT Authentication:** Implemented JSON Web Tokens (JWT) for secure session management.
+- **Secure Cookies:** Cookies are now configured with `httpOnly` and `sameSite: 'lax'` to prevent theft and CSRF attacks.
+- **Middleware Guard:** A custom `authenticateJWT` middleware protects sensitive routes like `/profile`.
+- **SQL Injection Prevention:** All database queries now use parameterized statements.
+- **Security Headers (Helmet):** Integrated the `helmet` package to set various security-related HTTP headers.
+
+**Final Audit Result:** 0 High-Risk Vulnerabilities (Verified by OWASP ZAP). ✅
