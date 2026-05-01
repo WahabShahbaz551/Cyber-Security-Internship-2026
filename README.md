@@ -75,6 +75,15 @@ If you want to run this application locally:
    ```bash
    git clone https://github.com/WahabShahbaz551/Cyber-Security-Internship-2026.git
 
+2. Install dependencies:
+```bash
+   npm install express ejs body-parser sqlite3 bcryptjs jsonwebtoken validator csurf helmet express-rate-limit
+```
+3. Run the server:
+```bash
+   node app.js
+```
+4. Visit: `http://localhost:3000`
 
 
 ## ✅ Week 2: Security Implementation (Defender Phase)
