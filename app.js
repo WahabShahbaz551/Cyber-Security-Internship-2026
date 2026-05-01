@@ -11,11 +11,24 @@ const validator = require('validator');
 const rateLimit = require('express-rate-limit');
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
+const authenticateJWT = require('./middleware/auth');
 
 
 // --- MIDDLEWARE ---
-app.use(helmet());
-app.disable('x-powered-by'); // Security Headers
+// --- MIDDLEWARE ---
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            scriptSrc: ["'self'"],
+            imgSrc: ["'self'", "data:"],
+            frameAncestors: ["'none'"],   // Clickjacking fix
+            formAction: ["'self'"]        // Form hijacking fix
+        }
+    }
+}));
+app.disable('x-powered-by');
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,  // 15 minutes
     max: 5,  // 5 attempts max
@@ -32,22 +45,6 @@ const db = new sqlite3.Database('./database.sqlite');
 db.serialize(() => {
     db.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT)");
 });
-
-// --- 🛡️ VIP GUARD (Middleware) ---
-const authenticateJWT = (req, res, next) => {
-    const token = req.cookies.token; 
-    if (!token) {
-        return res.send("<h3>Access Denied! Login Karein.</h3><a href='/login'>Login</a>");
-    }
-    try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.user = decoded; 
-        next(); 
-    } catch (err) {
-        return res.send("<h3>Invalid or Expired Session!</h3><a href='/login'>Login</a>");
-    }
-};
-
 // --- ROUTES ---
 
 // 1. Home Page
@@ -141,12 +138,7 @@ app.post('/login', loginLimiter, csrfProtection, (req, res) => {
 
 // 6. Secure Profile (Protected)
 app.get('/profile', authenticateJWT, (req, res) => {
-    res.send(`
-        <h1>VIP Room mein Khushamdeed! 🎩</h1>
-        <p>Hello <b>${req.user.username}</b>, yeh aapka private dashboard hai.</p>
-        <a href='/'>Go to Home</a>
-    `);
+    res.render('profile', { user: req.user });  // ✅ EJS template
 });
-
 // --- SERVER START ---
 app.listen(3000, () => console.log('✅ SECURE server running on http://localhost:3000'));

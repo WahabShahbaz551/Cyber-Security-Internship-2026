@@ -27,7 +27,7 @@ Below is the updated Risk Assessment Matrix after Week 2 remediation.
 | CSP Header Not Set | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | ✅ Patched |
 | CSP: No Fallback Directive | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | ✅ Patched |
 | Missing Anti-clickjacking Header | OWASP ZAP | 3 | 3 | 9 | 🟡 Medium | ✅ Patched |
-| X-Powered-By Header Leaks Tech Stack | OWASP ZAP | 5 | 1 | 5 | 🔵 Low | ❌ Unpatched |
+| X-Powered-By Header Leaks Tech Stack | OWASP ZAP | 5 | 1 | 5 | 🔵 Low | ✅ Patched |
 | X-Content-Type-Options Missing | OWASP ZAP | 4 | 1 | 4 | 🔵 Low | ✅ Patched |
 | Authentication Request Exposed | OWASP ZAP | 2 | 1 | 2 | ⚪ Info | ✅ Patched |
 
@@ -105,9 +105,6 @@ planned for Week 2:
 6. **X-Powered-By Leak** → Disable Express fingerprinting with 
    `app.disable('x-powered-by')`.
 ---
-*Stay tuned for Week 2, where I will be implementing Parameterized Queries, Input Sanitization (Validator), and Password Hashing (Bcrypt) to secure this application!*
-
----
 
 ## 🔐 Week 2: Security Implementation (Defender Phase)
 In this phase, the application was transformed from a vulnerable state to a secure, production-ready environment.
@@ -115,9 +112,13 @@ In this phase, the application was transformed from a vulnerable state to a secu
 ### **Implemented Security Features:**
 - **Password Hashing (Bcrypt):** User passwords are now securely hashed before being stored in the database.
 - **JWT Authentication:** Implemented JSON Web Tokens (JWT) for secure session management.
-- **Secure Cookies:** Cookies are now configured with `httpOnly` and `sameSite: 'lax'` to prevent theft and CSRF attacks.
+- - **Secure Cookies:** Cookies are now configured with `httpOnly` and `sameSite: 'strict'` 
 - **Middleware Guard:** A custom `authenticateJWT` middleware protects sensitive routes like `/profile`.
 - **SQL Injection Prevention:** All database queries now use parameterized statements.
 - **Security Headers (Helmet):** Integrated the `helmet` package to set various security-related HTTP headers.
 
 **Final Audit Result:** 0 High-Risk Vulnerabilities (Verified by OWASP ZAP). ✅
+
+### 📄 Week 2 Re-Scan (Post-Remediation)
+![Week 2 ZAP Scan](ScreenShots/ZAP_Week2_Summary.png)
+[View Full Week 2 ZAP Report](ZAP_Report_Week2.html)
