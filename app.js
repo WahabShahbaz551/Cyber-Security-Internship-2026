@@ -5,9 +5,10 @@ const helmet = require('helmet');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
 const app = express();
 const JWT_SECRET = "super_secret_hacker_key_123";
+const validator = require('validator');
+username = validator.escape(validator.trim(username));
 
 // --- MIDDLEWARE ---
 app.use(helmet()); // Security Headers
