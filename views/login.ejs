@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Secure App</title>
+    <style>
+        body { font-family: Arial; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .box { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; }
+        h2 { margin-bottom: 20px; color: #333; }
+        input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #5568d3; }
+        .error { color: #dc2626; background: #fee2e2; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-size: 14px; }
+        .link { text-align: center; margin-top: 15px; font-size: 14px; }
+        .link a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>🔐 Login</h2>
+        
+        <!-- ✅ Error message dikhane ka proper tareeqa -->
+        <% if (error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+        
+        <form action="/login" method="POST">
+            <!-- ✅ CSRF token yahan add hoga -->
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required minlength="6">
+            <button type="submit">Login</button>
+        </form>
+        
+        <p class="link">Don't have an account? <a href="/signup">Sign up</a></p>
+    </div>
+</body>
+</html>

@@ -4,6 +4,8 @@
 <body>
     <h2>Create an Account</h2>
     <form action="/signup" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
         <label>Username:</label><br>
         <input type="text" name="username" required><br><br>
         <label>Password:</label><br>
