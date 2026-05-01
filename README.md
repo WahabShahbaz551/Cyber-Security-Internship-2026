@@ -13,18 +13,26 @@ During the first week, I deployed an intentionally vulnerable Node.js applicatio
 ### 🔍 Findings & Risk Matrix
 Below is the Vulnerability Risk Assessment Matrix based on my manual testing. *(Risk Score = Likelihood × Impact)*
 
+## 🚀 Week 1: Vulnerability Assessment & Penetration Testing
+
+### 🔍 Findings & Risk Matrix
+Below is the updated Risk Assessment Matrix after Week 2 remediation.
+
 | Vulnerability | Tool Used | Likelihood | Impact | Risk Score | Risk Level | Status |
 |---|---|---|---|---|---|---|
-| SQL Injection (Auth Bypass) | Manual | 5 | 5 | 25 | 🔴 Critical | Unpatched |
-| Stored XSS (Profile Bio) | Manual | 4 | 4 | 16 | 🔴 Critical | Unpatched |
-| Plain-Text Password Storage | Manual (DB inspect) | 4 | 5 | 20 | 🔴 Critical | Unpatched |
-| Absence of Anti-CSRF Tokens | OWASP ZAP | 3 | 4 | 12 | 🟠 High | Unpatched |
-| CSP Header Not Set | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | Unpatched |
-| CSP: No Fallback Directive | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | Unpatched |
-| Missing Anti-clickjacking Header | OWASP ZAP | 3 | 3 | 9 | 🟡 Medium | Unpatched |
-| X-Powered-By Header Leaks Tech Stack | OWASP ZAP | 5 | 1 | 5 | 🔵 Low | Unpatched |
-| X-Content-Type-Options Missing | OWASP ZAP | 4 | 1 | 4 | 🔵 Low | Unpatched |
-| Authentication Request Exposed | OWASP ZAP | 2 | 1 | 2 | ⚪ Info | Noted |
+| SQL Injection (Auth Bypass) | Manual | 5 | 5 | 25 | 🔴 Critical | ✅ Patched |
+| Stored XSS (Profile Bio) | Manual | 4 | 4 | 16 | 🔴 Critical | ✅ Patched |
+| Plain-Text Password Storage | Manual (DB inspect) | 4 | 5 | 20 | 🔴 Critical | ✅ Patched |
+| Absence of Anti-CSRF Tokens | OWASP ZAP | 3 | 4 | 12 | 🟠 High | ⚠️ Partially Patched |
+| CSP Header Not Set | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | ✅ Patched |
+| CSP: No Fallback Directive | OWASP ZAP | 4 | 2 | 8 | 🟡 Medium | ✅ Patched |
+| Missing Anti-clickjacking Header | OWASP ZAP | 3 | 3 | 9 | 🟡 Medium | ✅ Patched |
+| X-Powered-By Header Leaks Tech Stack | OWASP ZAP | 5 | 1 | 5 | 🔵 Low | ❌ Unpatched |
+| X-Content-Type-Options Missing | OWASP ZAP | 4 | 1 | 4 | 🔵 Low | ✅ Patched |
+| Authentication Request Exposed | OWASP ZAP | 2 | 1 | 2 | ⚪ Info | ✅ Patched |
+
+&gt; **Legend:** ✅ Patched | ⚠️ Partially Patched | ❌ Unpatched
+
 
 ### 🔑 Plain-Text Password Storage
 Passwords are stored without hashing in the SQLite database, 
