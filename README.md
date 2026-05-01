@@ -13,9 +13,6 @@ During the first week, I deployed an intentionally vulnerable Node.js applicatio
 ### 🔍 Findings & Risk Matrix
 Below is the Vulnerability Risk Assessment Matrix based on my manual testing. *(Risk Score = Likelihood × Impact)*
 
-## 🚀 Week 1: Vulnerability Assessment & Penetration Testing
-
-### 🔍 Findings & Risk Matrix
 Below is the updated Risk Assessment Matrix after Week 2 remediation.
 
 | Vulnerability | Tool Used | Likelihood | Impact | Risk Score | Risk Level | Status |
@@ -61,22 +58,28 @@ As part of the security assessment, an automated scan was performed using OWASP 
 
 | File/Folder | Purpose |
 |---|---|
-| `app.js` | Main Express server with vulnerable routes |
-| `views/` | EJS templates for login, signup, profile pages |
+| `app.js` | Main Express server with secured routes |
+| `middleware/auth.js` | JWT authentication middleware |
+| `views/index.ejs` | Home page with security badge |
+| `views/login.ejs` | Login form with CSRF protection |
+| `views/signup.ejs` | Signup form with validation hints |
+| `views/profile.ejs` | Protected user dashboard |
 | `ScreenShots/` | Evidence screenshots from vulnerability testing |
-| `ZAP_Report_Week1.html` | Full OWASP ZAP automated scan report |
+| `ZAP_Report_Week1.html` | Full OWASP ZAP scan report (Week 1 - vulnerable) |
+| `ZAP_Report_Week2.html` | Full OWASP ZAP scan report (Week 2 - remediated) |
 | `Cybersecurity_Report_Week1_Final.pdf` | Formal findings document |
 
-## 💻 Setup Instructions (For Educational Purposes Only)
-If you want to run this vulnerable lab locally:
 
-1. Clone this repository: 
+## 💻 Setup Instructions
+
+If you want to run this application locally:
+
+1. Clone this repository:
    ```bash
-   git clone <your-github-repo-link-here>
-   ```
+   git clone https://github.com/WahabShahbaz551/Cyber-Security-Internship-2026.git ```
 2. Install the required dependencies: 
    ```bash
-   npm install express ejs body-parser sqlite3
+   npm install
    ```
 3. Run the server: 
    ```bash
@@ -86,18 +89,35 @@ If you want to run this vulnerable lab locally:
 
 > ⚠️ **Disclaimer:** This repository contains intentionally vulnerable code designed strictly for educational and testing purposes. Do not deploy this code in a production environment.
 
-## ✅ Week 2 Fixes Completed
+## ✅ Week 2: Security Implementation (Defender Phase)
 
-All planned security improvements have been successfully implemented:
+In this phase, the application was transformed from a vulnerable state to a secure, production-ready environment.
 
-- ✅ SQL Injection → Parameterized queries
-- ✅ Stored XSS → Input sanitization with validator
-- ✅ Plain-Text Passwords → bcrypt hashing
-- ✅ Missing Security Headers → Helmet.js with custom CSP
-- ✅ CSRF Protection → csurf tokens + sameSite strict cookies
-- ✅ X-Powered-By Leak → Disabled
+### 🔐 Implemented Security Features
 
----
+| Fix | Technology | What It Does |
+|---|---|---|
+| **Password Hashing** | `bcryptjs` (salt rounds: 10) | Scrambles passwords before database storage |
+| **JWT Authentication** | `jsonwebtoken` + HTTP-only cookies | Secure session management with tamper-proof tokens |
+| **Input Validation** | `validator` library | Sanitizes user input to prevent XSS and injection |
+| **CSRF Protection** | `csurf` + `sameSite: 'strict'` cookies | Prevents cross-site request forgery attacks |
+| **Rate Limiting** | `express-rate-limit` | Blocks brute-force login attempts (5 per 15 min) |
+| **Security Headers** | `helmet.js` with custom CSP | Sets 11+ headers including frame-ancestors, form-action |
+| **X-Powered-By** | `app.disable('x-powered-by')` | Hides Express.js fingerprint from headers |
+| **SQL Injection Prevention** | Parameterized queries (`?`) | All DB queries use placeholders |
+
+### 📊 Before vs After
+
+| Aspect | Week 1 (Vulnerable) | Week 2 (Secure) |
+|---|---|---|
+| Password storage | Plain text | bcrypt hashed |
+| Input handling | Raw (dangerous) | Sanitized & validated |
+| Authentication | None | JWT tokens |
+| Session security | None | HTTP-only, SameSite strict |
+| Security headers | Missing | 11+ via Helmet |
+| CSRF protection | None | Tokens + strict cookies |
+| Brute-force | Unlimited attempts | Rate limited (5/15min) |
+| Tech stack leak | X-Powered-By: Express | Hidden |---
 
 ## 🔐 Week 2: Security Implementation (Defender Phase)
 In this phase, the application was transformed from a vulnerable state to a secure, production-ready environment.
