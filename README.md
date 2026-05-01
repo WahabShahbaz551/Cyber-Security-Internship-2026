@@ -74,3 +74,49 @@ If you want to run this application locally:
 1. Clone this repository:
    ```bash
    git clone https://github.com/WahabShahbaz551/Cyber-Security-Internship-2026.git
+
+
+
+## ✅ Week 2: Security Implementation (Defender Phase)
+
+In this phase, the application was transformed from a vulnerable state to a secure, production-ready environment.
+
+### 🔐 Implemented Security Features
+
+| Fix | Technology | What It Does |
+|---|---|---|
+| **Password Hashing** | `bcryptjs` (salt rounds: 10) | Scrambles passwords before database storage |
+| **JWT Authentication** | `jsonwebtoken` + HTTP-only cookies | Secure session management with tamper-proof tokens |
+| **Input Validation** | `validator` library | Sanitizes user input to prevent XSS and injection |
+| **CSRF Protection** | `csurf` + `sameSite: 'strict'` cookies | Prevents cross-site request forgery attacks |
+| **Rate Limiting** | `express-rate-limit` | Blocks brute-force login attempts (5 per 15 min) |
+| **Security Headers** | `helmet.js` with custom CSP | Sets 11+ headers including frame-ancestors, form-action |
+| **X-Powered-By** | `app.disable('x-powered-by')` | Hides Express.js fingerprint from headers |
+| **SQL Injection Prevention** | Parameterized queries (`?`) | All DB queries use placeholders |
+
+### 📊 Before vs After
+
+| Aspect | Week 1 (Vulnerable) | Week 2 (Secure) |
+|---|---|---|
+| Password storage | Plain text | bcrypt hashed |
+| Input handling | Raw (dangerous) | Sanitized & validated |
+| Authentication | None | JWT tokens |
+| Session security | None | HTTP-only, SameSite strict |
+| Security headers | Missing | 11+ via Helmet |
+| CSRF protection | None | Tokens + strict cookies |
+| Brute-force | Unlimited attempts | Rate limited (5/15min) |
+| Tech stack leak | X-Powered-By: Express | Hidden |
+
+### 📄 Week 2 Re-Scan (Post-Remediation)
+
+Post-remediation OWASP ZAP scan confirms all critical vulnerabilities resolved.
+
+![Week 2 ZAP Scan](ScreenShots/ZAP_Week2_Summary.png)
+
+[View Full Week 2 ZAP Report](ZAP_Report_Week2.html)
+
+**Final Audit Result:** 0 High-Risk Vulnerabilities (Verified by OWASP ZAP). ✅
+
+---
+
+*This project is for educational purposes only. Do not deploy in production.*
