@@ -9,8 +9,8 @@ const app = express();
 const JWT_SECRET = "super_secret_hacker_key_123";
 const validator = require('validator');
 const rateLimit = require('express-rate-limit');
-const csrf = require('csurf');
-const csrfProtection = csrf({ cookie: true });
+const { doubleCsrf } = require('csrf-csrf');
+const { csrfProtection } = doubleCsrf({ cookie: { secure: false } });
 const authenticateJWT = require('./middleware/auth');
 
 

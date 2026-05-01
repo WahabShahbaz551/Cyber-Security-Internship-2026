@@ -86,24 +86,17 @@ If you want to run this vulnerable lab locally:
 
 > ⚠️ **Disclaimer:** This repository contains intentionally vulnerable code designed strictly for educational and testing purposes. Do not deploy this code in a production environment.
 
-## 🛠️ Areas of Improvement
+## ✅ Week 2 Fixes Completed
 
-Based on the vulnerability assessment, the following fixes are 
-planned for Week 2:
+All planned security improvements have been successfully implemented:
 
-1. **SQL Injection** → Replace raw queries with parameterized 
-   statements using SQLite's `?` placeholders.
-2. **Stored XSS** → Sanitize all user inputs using the `validator` 
-   npm library before storing or rendering.
-3. **Plain-Text Passwords** → Hash passwords using `bcrypt` with 
-   salt rounds of 10 before database storage.
-4. **Missing Security Headers** → Apply `helmet.js` middleware to 
-   set CSP, X-Frame-Options, X-Content-Type-Options headers 
-   automatically.
-5. **CSRF Protection** → Add CSRF token middleware using `csurf` 
-   to protect all form submissions.
-6. **X-Powered-By Leak** → Disable Express fingerprinting with 
-   `app.disable('x-powered-by')`.
+- ✅ SQL Injection → Parameterized queries
+- ✅ Stored XSS → Input sanitization with validator
+- ✅ Plain-Text Passwords → bcrypt hashing
+- ✅ Missing Security Headers → Helmet.js with custom CSP
+- ✅ CSRF Protection → csurf tokens + sameSite strict cookies
+- ✅ X-Powered-By Leak → Disabled
+
 ---
 
 ## 🔐 Week 2: Security Implementation (Defender Phase)
