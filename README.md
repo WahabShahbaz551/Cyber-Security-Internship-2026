@@ -128,9 +128,6 @@ Post-remediation OWASP ZAP scan confirms all critical vulnerabilities resolved.
 
 ---
 
-*This project is for educational purposes only. Do not deploy in production.*
-
-
 # 🛡️ Week 3: Penetration Testing & Security Audit Phase
 
 In this final phase, the role transitioned from a **Defender** to an **Ethical Hacker/Auditor**. The objective was to perform a rigorous security assessment of the application to ensure that the security "hardening" implemented in Week 2 is functioning as expected against real-world scanning tools.
@@ -171,3 +168,7 @@ The screenshot below shows the automated logging of login attempts, including th
 ### ✅ Final Security Checklist
 A comprehensive security audit was performed against the **OWASP Top 10** standards. You can find the detailed audit report here:
 👉 [View Full Security Checklist](./SECURITY_CHECKLIST.md)
+
+---
+
+*This project is for educational purposes only. Do not deploy in production.*
