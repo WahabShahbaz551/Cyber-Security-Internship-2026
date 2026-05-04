@@ -140,7 +140,7 @@ The audit began with a deep-dive network scan using **Nmap** to map the applicat
 
 #### **Step 1: Service & Port Discovery**
 An initial service discovery scan was conducted to identify active listeners. Port `3000` was confirmed as the primary entry point, hosting the Node.js Express environment.
-![Nmap Port Discovery](ScreenShots/Nmap_Ports.png)
+![Nmap Port Discovery](ScreenShots/Nmap_Scan_Week3.png)
 
 #### **Step 2: Security Controls Verification (Fingerprinting)**
 Using aggressive service fingerprinting, the scan successfully intercepted the server's response headers. This verified that the **Week 2 Security Fixes** (specifically the `Helmet.js` implementation) are correctly configured and visible to external scanners. 
