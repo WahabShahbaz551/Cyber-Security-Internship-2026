@@ -165,3 +165,9 @@ To ensure accountability and incident response capabilities, I integrated **Wins
 #### **Evidence: Security Logs**
 The screenshot below shows the automated logging of login attempts, including the user's IP and activity timestamp.
 ![Security Logs Evidence](ScreenShots/Security_Logs_Week3.png)
+
+---
+
+### ✅ Final Security Checklist
+A comprehensive security audit was performed against the **OWASP Top 10** standards. You can find the detailed audit report here:
+👉 [View Full Security Checklist](./SECURITY_CHECKLIST.md)

@@ -73,12 +73,25 @@ app.get('/signup', csrfProtection, (req, res) => {
 // 3. Signup Action (POST) - SECURE
 app.post('/signup', csrfProtection, (req, res) => {
     let { username, password } = req.body;
-    username = validator.escape(validator.trim(username));
-
+    
+    
     if (!username || !password) {
         return res.render('signup', { 
             csrfToken: req.csrfToken(),
             error: 'All fields are required.' 
+        });
+    }
+
+    username = validator.escape(validator.trim(username));
+
+    // 3. Task 2: Activity ko LOG karein (Winston)
+    logger.info(`New signup attempt for: ${username}`, { ip: req.ip });
+
+    // 4. Task 3: Password Length check
+    if (password.length < 8) {
+        return res.render('signup', { 
+            csrfToken: req.csrfToken(),
+            error: 'Password must be at least 8 characters long.' 
         });
     }
 
@@ -114,10 +127,8 @@ app.post('/signup', csrfProtection, (req, res) => {
 // 5. Login Action (POST) - SECURE
 app.post('/login', loginLimiter, csrfProtection, (req, res) => {
     let { username, password } = req.body;
-    username = validator.escape(validator.trim(username));
-    // Login attempt log karo
-logger.info(`Login attempt for user: ${username}`, { ip: req.ip });
 
+    // 1. Pehle Empty check karein (Validation)
     if (!username || !password) {
         return res.render('login', { 
             csrfToken: req.csrfToken(),
@@ -125,24 +136,56 @@ logger.info(`Login attempt for user: ${username}`, { ip: req.ip });
         });
     }
 
+    // 2. Phir Sanitize karein (Sanitization)
+    username = validator.escape(validator.trim(username));
+
+    // 3. Task 2: Login attempt log karein (Winston)
+    logger.info(`Login attempt for user: ${username}`, { ip: req.ip });
+
+    // 4. Task 3: Password Length check (Consistency with Signup)
+    if (password.length < 8) {
+        // Hum generic error denge taake hacker ko length ka pata na chale
+        logger.warn(`Failed login (short password) for: ${username}`);
+        return res.render('login', { 
+            csrfToken: req.csrfToken(),
+            error: 'Invalid username or password.' 
+        });
+    }
+
+    // 5. Database logic (Parameterized Query)
     db.get(`SELECT * FROM users WHERE username = ?`, [username], (err, user) => {
-        if (err || !user) {
+        if (err) {
+            logger.error(`Database error during login: ${err.message}`);
+            return res.status(500).send("Internal Server Error");
+        }
+
+        // User nahi mila toh
+        if (!user) {
+            logger.warn(`Failed login (User not found): ${username}`);
             return res.render('login', { 
                 csrfToken: req.csrfToken(),
                 error: 'Invalid username or password.' 
             });
         }
 
+        // 6. Password match check (Bcrypt)
         const isPasswordValid = bcrypt.compareSync(password, user.password);
+        
         if (isPasswordValid) {
+            // SUCCESS LOG
+            logger.info(`Successful login: ${username}`);
+
+            // JWT aur Cookie logic
             const token = jwt.sign({ username: user.username }, JWT_SECRET, { expiresIn: '1h' });
             res.cookie('token', token, { 
                 httpOnly: true, 
                 sameSite: 'strict',
-                secure: false
+                secure: false // Production (HTTPS) par isay true karna hoga
             });
             res.redirect('/profile');
         } else {
+            // FAILURE LOG (Wrong Password)
+            logger.warn(`Failed login (Incorrect password) for: ${username}`);
             return res.render('login', { 
                 csrfToken: req.csrfToken(),
                 error: 'Invalid username or password.' 
