@@ -129,3 +129,27 @@ Post-remediation OWASP ZAP scan confirms all critical vulnerabilities resolved.
 ---
 
 *This project is for educational purposes only. Do not deploy in production.*
+
+
+# 🛡️ Week 3: Penetration Testing & Security Audit Phase
+
+In this final phase, the role transitioned from a **Defender** to an **Ethical Hacker/Auditor**. The objective was to perform a rigorous security assessment of the application to ensure that the security "hardening" implemented in Week 2 is functioning as expected against real-world scanning tools.
+
+### 🔍 Network-Level Reconnaissance (Nmap Audit)
+The audit began with a deep-dive network scan using **Nmap** to map the application's attack surface and identify any potential entry points or service misconfigurations.
+
+#### **Step 1: Service & Port Discovery**
+An initial service discovery scan was conducted to identify active listeners. Port `3000` was confirmed as the primary entry point, hosting the Node.js Express environment.
+![Nmap Port Discovery](ScreenShots/Nmap_Ports.png)
+
+#### **Step 2: Security Controls Verification (Fingerprinting)**
+Using aggressive service fingerprinting, the scan successfully intercepted the server's response headers. This verified that the **Week 2 Security Fixes** (specifically the `Helmet.js` implementation) are correctly configured and visible to external scanners. 
+
+**Verified Defenses:**
+- **Content-Security-Policy (CSP):** Active and restricting unauthorized script execution.
+- **HSTS:** Enforcing secure connections.
+- **X-Frame-Options:** Effectively preventing Clickjacking at the network level.
+
+![Nmap Header Verification](ScreenShots/Nmap_Headers.png)
+
+---
