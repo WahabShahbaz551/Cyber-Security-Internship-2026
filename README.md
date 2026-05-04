@@ -77,7 +77,7 @@ If you want to run this application locally:
 
 2. Install dependencies:
 ```bash
-   npm install express ejs body-parser sqlite3 bcryptjs jsonwebtoken validator csurf helmet express-rate-limit
+   npm install express ejs body-parser sqlite3 bcryptjs jsonwebtoken validator csurf helmet express-rate-limit cookie-parser
 ```
 3. Run the server:
 ```bash
