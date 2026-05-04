@@ -12,7 +12,20 @@ const rateLimit = require('express-rate-limit');
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
 const authenticateJWT = require('./middleware/auth');
+const winston = require('winston');
 
+// Logger configuration
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.Console(), // Terminal mein dikhayega
+        new winston.transports.File({ filename: 'security.log' }) // File mein save karega
+    ]
+});
 
 // --- MIDDLEWARE ---
 // --- MIDDLEWARE ---
@@ -102,6 +115,8 @@ app.post('/signup', csrfProtection, (req, res) => {
 app.post('/login', loginLimiter, csrfProtection, (req, res) => {
     let { username, password } = req.body;
     username = validator.escape(validator.trim(username));
+    // Login attempt log karo
+logger.info(`Login attempt for user: ${username}`, { ip: req.ip });
 
     if (!username || !password) {
         return res.render('login', { 

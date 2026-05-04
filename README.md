@@ -153,3 +153,15 @@ Using aggressive service fingerprinting, the scan successfully intercepted the s
 ![Nmap Header Verification](ScreenShots/Nmap_Headers.png)
 
 ---
+
+### 📜 Logging & Monitoring (Winston Logger)
+To ensure accountability and incident response capabilities, I integrated **Winston Logger** into the application. This allows the system to keep a permanent record of all security-sensitive events.
+
+#### **Key Features:**
+- **Audit Trail:** Every login attempt (successful or failed) is logged with a timestamp and IP address.
+- **Persistent Storage:** Logs are saved to a dedicated `security.log` file for forensic analysis.
+- **Machine Readable:** Logs are formatted in **JSON**, making them ready for integration with professional SIEM tools (e.g., Splunk).
+
+#### **Evidence: Security Logs**
+The screenshot below shows the automated logging of login attempts, including the user's IP and activity timestamp.
+![Security Logs Evidence](ScreenShots/Security_Logs_Week3.png)
