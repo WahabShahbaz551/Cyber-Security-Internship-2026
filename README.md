@@ -172,3 +172,48 @@ A comprehensive security audit was performed against the **OWASP Top 10** standa
 ---
 
 *This project is for educational purposes only. Do not deploy in production.*
+
+
+---
+
+## 🔒 Week 4: Advanced Threat Detection & Web Security Enhancements
+
+### 🎯 Goal
+Implement advanced security measures, detect threats in real-time, and secure API endpoints with defense-in-depth strategy.
+
+---
+
+### 📡 1. Intrusion Detection & Monitoring (Fail2Ban)
+
+| Detail | Value |
+|--------|-------|
+| **Tool** | Fail2Ban |
+| **OS** | Kali GNU/Linux Rolling 2026.1 |
+| **Jails Configured** | `sshd`, `nginx-http-auth`, `custom-api` |
+| **Ban Policy** | 3 failed attempts = 1 hour ban |
+| **Alert System** | Slack webhook integration |
+
+**Files Created:**
+- `/etc/fail2ban/jail.local` — Main jail configuration
+- `/etc/fail2ban/filter.d/custom-api.conf` — Custom API log filter
+- `/etc/fail2ban/action.d/slack-notify.conf` — Slack alert action
+
+**Test Results:**
+| Test | Result |
+|------|--------|
+| Manual ban IP `1.2.3.4` | ✅ `Currently banned: 1` |
+| Manual unban IP `1.2.3.4` | ✅ Successfully removed |
+| `sshd` jail status | ✅ Active (`Total banned: 1`) |
+| `custom-api` jail status | ✅ Active (0 bans = normal) |
+
+---
+
+### 🔐 2. API Security Hardening
+
+#### A. Rate Limiting (`express-rate-limit`)
+```javascript
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,  // 15 minutes
+    max: 5,  // 5 attempts max
+    message: 'Too many login attempts. Please try again after 15 minutes.'
+});

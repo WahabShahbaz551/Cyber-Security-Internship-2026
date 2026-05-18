@@ -1,18 +1,19 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = "super_secret_hacker_key_123";
 
 const authenticateJWT = (req, res, next) => {
-    const token = req.cookies.token;
+    const token = req.cookies ? req.cookies.token : null;
+    
     if (!token) {
         return res.redirect('/login');
     }
-    try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.user = decoded;
+
+    jwt.verify(token, process.env.JWT_SECRET || "super_secret_hacker_key_123", (err, user) => {
+        if (err) {
+            return res.redirect('/login');
+        }
+        req.user = user;
         next();
-    } catch (err) {
-        return res.redirect('/login');
-    }
+    });
 };
 
 module.exports = authenticateJWT;

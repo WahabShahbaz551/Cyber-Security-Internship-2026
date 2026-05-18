@@ -1,27 +1,27 @@
 {
-  "name": "cybersecurity-project",
+  "name": "cyber-security-internship-2026",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Cybersecurity Internship Project - Week 1 to 6",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"No tests yet\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "body-parser": "^2.2.2",
-    "cookie-parser": "^1.4.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.6",
     "csurf": "^1.11.0",
+    "dotenv": "^16.3.1",
     "ejs": "^5.0.2",
-    "express": "^5.2.1",
-    "express-rate-limit": "^8.4.1",
-    "helmet": "^8.1.0",
-    "jsonwebtoken": "^9.0.3",
-    "sqlite3": "^6.0.1",
-    "validator": "^13.15.35",
-    "winston": "^3.19.0"
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "sqlite3": "^5.1.6",
+    "validator": "^13.11.0",
+    "winston": "^3.11.0"
   }
 }
